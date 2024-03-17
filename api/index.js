@@ -29,7 +29,7 @@ const jwtSecret = process.env.JWT_SECRET;
 app.use(cors({
   credentials: true,
   methods:["POST", "GET"],
-  origin: ["http://localhost:5173"]
+  origin: ["ota-x-client.vercel.app"]
 }));
 
 app.use(express.json());
