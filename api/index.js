@@ -29,7 +29,7 @@ const jwtSecret = process.env.JWT_SECRET;
 app.use(cors({
   credentials: true,
   methods:["POST", "GET"],
-  origin: process.env.CLIENT_URL
+  origin: ["http://localhost:5173"]
 }));
 
 app.use(express.json());
