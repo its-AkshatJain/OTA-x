@@ -409,31 +409,26 @@ app.post("/user-dashboard/track", async (req, res) => {
       return res.status(400).json({ error: "Tracking ID is required" });
     }
 
-    // const driver = await HubModel.findOne({ trackingIds: trackingId }).exec();
-    const driver = await HubModel.findOne({ trackingIds: { $in: [trackingId] } }).exec();
-
+    const driver = await HubModel.findOne({ trackingIds: trackingId }).exec();
     console.log(driver);
-
     if (!driver) {
       return res.status(404).json({ error: "Driver not found for the provided tracking ID" });
     }
 
     const { driverId } = driver;
-
+    console.log(driverId);
     if (!driverId) {
       return res.status(404).json({ error: "Driver ID not found for the provided tracking ID" });
     }
 
-    const driverLocation = await DriverModel.findOne({ driverId });
+    const driverLocation = await DriverModel.findOne({ driverId:driverId });
     console.log(driverLocation);
-
     if (!driverLocation) {
       return res.status(404).json({ error: "Driver location not found" });
     }
 
     const driverCoordinates = driverLocation.location.coordinates;
-    console.log(driverLocation);
-
+    console.log(driverCoordinates);
     res.status(200).json({ driverId, driverCoordinates });
   } catch (error) {
     console.error("Error fetching driver information:", error);
