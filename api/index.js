@@ -16,7 +16,7 @@ const bcryptSalt = bcrypt.genSaltSync(10);
 
 dotenv.config();
 
-mongoose.connect(process.env.MONGO_URL)
+mongoose.connect("mongodb+srv://Ota-tracker:OTA%401234@cluster0.qabvxfj.mongodb.net/?retryWrites=true&w=majority")
   .then(() => {
     console.log('Connected to MongoDB');
   })
@@ -29,7 +29,7 @@ const jwtSecret = process.env.JWT_SECRET;
 app.use(cors({
   credentials: true,
   methods:["POST", "GET"],
-  origin: process.env.CLIENT_URL
+  origin: ["ota-x-client.vercel.app"]
 }));
 
 app.use(express.json());
