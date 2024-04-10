@@ -1,4 +1,4 @@
-# OTA'x (Online Tracking Accompany)
+# OTA'x (Order Tracking Accompany)
 
 Welcome to the OTA'x Delivery Tracking Web Platform repository! This platform is designed to simplify the tracking of order status and location for users, providing real-time updates on the whereabouts of their packages during transportation for delivery.
 
